@@ -20,7 +20,19 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Star Wars Ships" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwf-Vh-nTy">
+                                <rect key="frame" x="146" y="78" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Iwf-Vh-nTy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aln-Gx-It6"/>
+                            <constraint firstItem="Iwf-Vh-nTy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="lVz-CR-2ez"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -29,10 +41,10 @@
         <!--Page View Controller-->
         <scene sceneID="fV4-c6-bwe">
             <objects>
-                <pageViewController storyboardIdentifier="pageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Kcp-al-eQW" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="pageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="Kcp-al-eQW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ff-xl-1XN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="69"/>
+            <point key="canvasLocation" x="848" y="40"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="2BV-sv-UNu">
@@ -60,7 +72,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Y4T-RK-WJo" firstAttribute="top" secondItem="Fdy-kj-9QJ" secondAttribute="bottom" constant="45" id="SqA-Oj-30X"/>
                             <constraint firstItem="Fdy-kj-9QJ" firstAttribute="centerX" secondItem="7wc-1m-CMr" secondAttribute="centerX" id="dbU-Kl-HJe"/>
@@ -75,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLF-sr-Ved" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="752"/>
+            <point key="canvasLocation" x="848" y="744"/>
         </scene>
     </scenes>
 </document>

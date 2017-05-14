@@ -60,22 +60,34 @@ class ViewController: UIViewController {
 extension ViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let contentVC = viewController as! ContentViewController
+        var index = contentVC.itemIndex
         
-        if contentVC.itemIndex > 0  {
-            return getContentViewController(withIndex: contentVC.itemIndex - 1)
+        if index == 0 || index == NSNotFound {
+            return getContentViewController(withIndex: images.count - 1)
         }
         
-        return nil
+        index -= 1     // index = index - 1
+        
+        return getContentViewController(withIndex: index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let contentVC = viewController as! ContentViewController
+        var index = contentVC.itemIndex
         
-        if contentVC.itemIndex + 1 < images.count {
-            return getContentViewController(withIndex: contentVC.itemIndex + 1)
+        if index == NSNotFound {
+            return nil
         }
-        return nil
+        index += 1
+        
+        if index == images.count {
+            return getContentViewController(withIndex: 0)
+        }
+        
+        return getContentViewController(withIndex: index)
     }
+    
+
 }
 
 
