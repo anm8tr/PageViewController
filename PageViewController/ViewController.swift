@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     var pageViewController: UIViewController?
-    var images = ["imperialstarship","millenniumFalcon", "xwing"]
+    var images = ["imperialstarship","millenniumFalcon", "xwing", "tiefighter", "tiedefender"]
+    var pendingIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,7 @@ class ViewController: UIViewController {
         // istantiate the PageViewController
         let pageController = self.storyboard?.instantiateViewController(withIdentifier: "pageVC") as! UIPageViewController
         pageController.dataSource = self
+        pageController.delegate = self
         
         if images.count > 0 {
             let contentController = getContentViewController(withIndex: 0)!
@@ -57,7 +62,10 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UIPageViewControllerDataSource {
+extension ViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    // UIPageViewControllerDatasource
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let contentVC = viewController as! ContentViewController
         var index = contentVC.itemIndex
@@ -87,7 +95,19 @@ extension ViewController: UIPageViewControllerDataSource {
         return getContentViewController(withIndex: index)
     }
     
-
+    // UIPageViewControllerDelegate
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        pendingIndex = (pendingViewControllers.first as! ContentViewController).itemIndex
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            if let index = pendingIndex {
+                self.pageControl.currentPage = index
+            }
+        }
+    }
 }
 
 
